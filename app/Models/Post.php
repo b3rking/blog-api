@@ -11,7 +11,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['image_url', 'likes', 'content'];
+    protected $fillable = ['title', 'user_id', 'image_url', 'likes', 'content'];
 
     public function comment() {
     	return $this->hasMany(Comment::class);

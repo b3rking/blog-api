@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return response(Post::all(), 200);
     }
 
     /**
@@ -25,7 +25,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $resultat = Post::create($request->all());
+        if($resultat) {
+            return response($resultat, 200)->header('author', 'berking');
+        } else {
+            return response(['message', 'something went wrong!']);
+        }
     }
 
     /**
@@ -36,7 +41,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return response(Post::find($post), 200);
     }
 
     /**
@@ -48,7 +53,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        return response(Post::find($post)->update($request->all()), 202);
     }
 
     /**
@@ -59,6 +64,6 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        return response(Post::find($post)->delete(), 200);
     }
 }
