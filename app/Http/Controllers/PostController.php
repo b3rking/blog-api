@@ -26,7 +26,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $resultat = Post::create($request->all());
+        $input = $request->all();
+
+        if( $file = $request['image_url'] ) {
+            $name = $file->getClientOriginalName();
+            $file->move('images', $name);
+            $input['image_url'] = 'images/'. $name;
+        }
+
+        $resultat = Post::create($input);
         if($resultat) {
             return response($resultat, 200)->header('author', 'berking');
         } else {

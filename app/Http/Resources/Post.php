@@ -21,6 +21,7 @@ class Post extends JsonResource
         $create_time = new Carbon($this->created_at);
         $update_time = new Carbon($this->updated_at);
         return [
+            'id' => $this->id,
             'title' => $this->title,
             'username' => $username,
             'image_url' => $this->image_url,
