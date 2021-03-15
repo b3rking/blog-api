@@ -17,11 +17,15 @@ Route::namespace('App\Http\Controllers')->group(function() {
 
 });
 
-Route::get('/me', 'App\Http\Controllers\PostController@me');
+Route::namespace('App\Http\Controllers')->group(function() {
+
+	Route::apiResource('/comments', 'CommentController');
+
+});
 
 
 Route::namespace('App\Http\Controllers')->group(function() {
 
-	Route::apiResource('/comments', 'CommentController');
+	Route::apiResource('users', 'UserController');
 
 });
