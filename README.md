@@ -1,4 +1,4 @@
-<h1 text-align="center">Blog api</h1>
+<h1 style="text-align:center">Blog api</h1>
 <h2>Endpoints</h2>
 <ul>
 	<li>-api/posts		GET   =>  all posts</li>
