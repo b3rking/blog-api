@@ -16,3 +16,12 @@ Route::namespace('App\Http\Controllers')->group(function() {
 	Route::apiResource('/posts', 'PostController');
 
 });
+
+Route::get('/me', 'App\Http\Controllers\PostController@me');
+
+
+Route::namespace('App\Http\Controllers')->group(function() {
+
+	Route::apiResource('/comments', 'CommentController');
+
+});

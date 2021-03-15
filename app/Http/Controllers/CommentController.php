@@ -14,7 +14,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        return response(Comment::all(), 200);
     }
 
     /**
@@ -25,7 +25,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response(Comment::create($request->all()), 201);
     }
 
     /**
@@ -36,7 +36,7 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        //
+        return response(Comment::find($comment), 200);
     }
 
     /**
@@ -48,7 +48,7 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        return response(Comment::find($comment)->update($request->all()), 201);
     }
 
     /**
@@ -59,6 +59,6 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        return response(Comment::find($comment)->delete(), 202);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Resources\Post as ResourcePost;
 
 class PostController extends Controller
 {
@@ -14,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return response(Post::all(), 200);
+        return ResourcePost::collection(Post::orderByDesc('created_at')->get());
     }
 
     /**
@@ -41,7 +42,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return response(Post::find($post), 200);
+        // return response(Post::find($post), 200);
+
+        return new ResourcePost($post);
     }
 
     /**
@@ -65,5 +68,9 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         return response(Post::find($post)->delete(), 200);
+    }
+
+    public function me() {
+        return Post::paginate(10);
     }
 }
