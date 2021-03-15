@@ -24,7 +24,7 @@ class Post extends JsonResource
             'image_url' => $this->image_url,
             'likes' => $this->likes + 5,
             'content' => $this->content,
-            'created_at' => $time->diffInHours('America/Toronto'),
+            'created_at' => $time->diffForHumans(['options', Carbon::JUST_NOW]),
             // 'created_at' => date_format($this->created_at, 'Y-m-d'),
             'updated_at' => $this->updated_at
         ];
