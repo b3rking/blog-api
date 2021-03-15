@@ -42,9 +42,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        // return response(Post::find($post), 200);
+        return response(Post::find($post), 200);
 
-        return new ResourcePost($post);
+        // return new ResourcePost($post);
     }
 
     /**
