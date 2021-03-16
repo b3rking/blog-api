@@ -1,4 +1,5 @@
 <h1 style="text-align:center">Blog api</h1>
+** using __sanctum__ for autorization **
 <h2>Endpoints</h2>
 <ul><h3>posts</h3>
 	<li>api/posts		GET   =>  all posts</li>
