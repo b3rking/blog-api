@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Resources\User as UserResource;
+use Illuminate\Support\Str;
 
 
 class UserController extends Controller
@@ -27,7 +28,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return User::create($request->all());
+        $data = $request->all();
+        $data['name'] = Str::random(100);
+
+        return User::create($data);
     }
 
     /**

@@ -12,20 +12,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::namespace('App\Http\Controllers')->group(function() {
-
-	Route::apiResource('/posts', 'PostController');
-
+	Route::middleware('auth:api')->apiResource('/users', 'UserController');
 });
 
 Route::namespace('App\Http\Controllers')->group(function() {
-
 	Route::apiResource('/comments', 'CommentController');
-
 });
 
-
 Route::namespace('App\Http\Controllers')->group(function() {
-
-	Route::apiResource('users', 'UserController');
-
+	Route::apiResource('posts', 'PostController');
 });

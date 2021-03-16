@@ -26,7 +26,7 @@ class User extends JsonResource
             'email' => $this->email,
             'password' => bcrypt($this->password),
             'posts' => $posts,
-            //'comments' => $comments
+            'token' => $this->api_token,
         ];
     }
 }
