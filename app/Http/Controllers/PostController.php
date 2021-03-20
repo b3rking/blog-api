@@ -50,7 +50,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return response(Post::find($post), 200);
+        return response($post, 200);
 
         // return new ResourcePost($post);
     }
@@ -64,7 +64,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        return response(Post::find($post)->update($request->all()), 202);
+        return response($post->update($request->all()), 202);
     }
 
     /**
@@ -75,7 +75,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        return response(Post::find($post)->delete(), 200);
+        return response($post->delete(), 200);
     }
 
     public function me() {

@@ -1,4 +1,6 @@
-<h1 style="text-align:center">Blog api</h1>
+<center>
+	<h1>Blog api</h1>	
+</center>
 ** using __sanctum__ for autorization **
 <h2>Endpoints</h2>
 <ul><h3>posts</h3>
