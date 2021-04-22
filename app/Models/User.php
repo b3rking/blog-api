@@ -10,6 +10,7 @@ use App\Models\Post;
 use App\Models\Comment;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;

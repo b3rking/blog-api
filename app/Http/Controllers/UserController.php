@@ -47,7 +47,9 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return User::find($user);
+        return (new UserResource($user))
+                    ->response()
+                    ->header('Accept', 'application/json');
     }
 
     /**
