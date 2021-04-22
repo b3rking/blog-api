@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Resources\Post as ResourcePost;
+use Illuminate\Http\Response;
 
 class PostController extends Controller
 {
@@ -15,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return response(ResourcePost::collection(Post::orderByDesc('created_at')->get()), 202);
+        return Response(ResourcePost::collection(Post::orderByDesc('created_at')->get()), 202)->header('Accept', 'application/json');
     }
 
     /**
