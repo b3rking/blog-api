@@ -28,6 +28,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
         $data = $request->all();
         $data['api_token'] = Str::random(100);
 
