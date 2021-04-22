@@ -22,3 +22,7 @@ Route::namespace('App\Http\Controllers')->group(function() {
 Route::namespace('App\Http\Controllers')->group(function() {
 	Route::apiResource('posts', 'PostController');
 });
+
+Route::namespace('App\Http\Controllers')->group(function() {
+	Route::apiResource('users', 'UserController');
+});

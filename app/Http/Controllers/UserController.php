@@ -29,7 +29,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $data['name'] = Str::random(100);
+        $data['api_token'] = Str::random(100);
 
         return User::create($data);
     }
