@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return ResourcePost::collection(Post::orderByDesc('created_at')->get());
+        return response(ResourcePost::collection(Post::orderByDesc('created_at')->get()), 202);
     }
 
     /**

@@ -19,7 +19,7 @@ Route::namespace('App\Http\Controllers')->group(function() {
 	Route::apiResource('/comments', 'CommentController');
 });
 
-Route::namespace('App\Http\Controllers')->group(function() {
+Route::namespace('App\Http\Controllers')->middleware('auth:sanctum')->group(function() {
 	Route::apiResource('posts', 'PostController');
 });
 
