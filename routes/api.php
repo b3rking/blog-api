@@ -10,13 +10,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
 Route::namespace('App\Http\Controllers')->group(function() {
-	Route::middleware('auth:api')->apiResource('/users', 'UserController');
-});
-
-Route::namespace('App\Http\Controllers')->group(function() {
-	Route::apiResource('/comments', 'CommentController');
+	Route::apiResource('comments', 'CommentController');
 });
 
 Route::namespace('App\Http\Controllers')->middleware('auth:sanctum')->group(function() {
