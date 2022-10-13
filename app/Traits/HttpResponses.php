@@ -1,7 +1,7 @@
 <?php
 namespace App\Traits;
 
-trait HttpResponse {
+trait HttpResponses {
     protected function success($data, $message = null, $status_code = 200) {
         return response([
             'status' => 'success',
