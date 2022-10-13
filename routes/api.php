@@ -7,8 +7,11 @@ use Illuminate\Support\Facades\Route;
 
 // routessss
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return response(['data' => $request->user()], [
+        'Accept' => 'application/json',
+        'Content-Type' => 'application/json'
+    ]);
 });
 
 Route::namespace('App\Http\Controllers')->group(function() {
