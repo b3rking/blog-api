@@ -3,6 +3,9 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -36,6 +39,14 @@ class Handler extends ExceptionHandler
     {
         $this->reportable(function (Throwable $e) {
             //
+        });
+
+        $this->renderable(function(TooManyRequestsHttpException $e) {
+            return response(['error' => 'too many request, try in 1 minutes'], 429);
+        });
+
+        $this->renderable(function(NotFoundHttpException $e) {
+            return response(['error' => 'endpoint not avalaible or found'], 404);
         });
     }
 }
